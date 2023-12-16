@@ -169,6 +169,8 @@ body{
     width: 100%;
     height: calc(100% - 150px);
     overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -190,4 +192,39 @@ body{
     border: none;
     border-radius: 5px;
     padding-left: 5px;
+}
+
+
+
+/*stile messaggi */
+.message{
+    min-height: 40px;
+    min-width: 200px;
+    margin-top: 30px;
+    align-self: flex-start;
+    border-radius: 10px;
+}
+
+.sent{
+    background-color:#d5f9ba ;
+    align-self: end;
+    margin-right: 40px;
+}
+
+.received{
+    background-color:#fefffe;
+    align-self: flex-start;
+    margin-left: 40px;
+}
+
+.message-content{
+    padding: 10px 80px 0px 20px;
+}
+
+.local-data{
+    color: #6a7276;
+    font-size: 10px;
+    justify-content: flex-end;
+    display: flex;
+    margin-right: 5px;
 }
