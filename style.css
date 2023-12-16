@@ -151,7 +151,7 @@ body{
 
 .h-sent-container{
     display: flex;
-    width: 35%;
+    flex-grow: 1;
     height: 100%;
     justify-content: end;
     align-items: start;
@@ -239,4 +239,8 @@ body{
 
 .active{
     background-color:#e9eaea ;
+}
+
+.hide{
+    display: none;
 }

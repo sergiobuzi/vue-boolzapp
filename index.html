@@ -79,26 +79,25 @@
 
 
                 <!--card contatto-->
-                <div class="card-contact active">
+                <div class="card-contact active" v-for="(element, i) in phonebook" :key="i">
 
                     <div class="contact-list-img-container">
-                        <img src="img/avatar_io.jpg" alt="contact" class="propic contact">
+                        <img :src="phonebook[i].image" :alt="phonebook[i].name" class="propic contact">
                     </div>
 
                     <div class="contact-list-text-container">
-                        <div>Norberto</div>
-                        <div class="last-access">Ultimo messaggio inviato</div>
+                        <div>{{ phonebook[i].name }}</div>
+                        <div class="last-access">{{ phonebook[i].msg3 }}</div>
                     </div>
 
                     <div class="h-sent-container">
-                        <div class="last-access hhh">12:00</div>
+                        <div class="last-access hhh">{{ phonebook[i].lastlog }}</div>
                     </div>
 
                 </div>
 
 
             </div>
-
 
 
         </div>
@@ -116,11 +115,11 @@
             <div class="top-app">
 
                 <div class="top-user">
-                    <img src="img/avatar_io.jpg" alt="io" class="propic">
+                    <img :src="phonebook[selectedContact].image" :alt="phonebook[selectedContact].name" class="propic">
 
                     <div class="contact-list-text-container">
-                        <div>Norberto</div>
-                        <div class="last-access">Ultimo accesso oggi alle 12:00</div>
+                        <div>{{ phonebook[selectedContact].name }}</div>
+                        <div class="last-access">Ultimo accesso alle {{ phonebook[selectedContact].lastlog }}</div>
                     </div>
                 </div>
 
@@ -138,13 +137,18 @@
             <div id="messages-page">
 
                 <div class="message sent">
-                    <div class="message-content">Hai portato a spasso il cane?</div>
+                    <div class="message-content">{{ phonebook[selectedContact].msg1 }}</div>
                     <div class="local-data">15.00</div>
                 </div>
 
                 <div class="message received">
-                    <div class="message-content">fratm</div>
-                    <div class="local-data">15.15</div>
+                    <div class="message-content">{{ phonebook[selectedContact].msg2 }}</div>
+                    <div class="local-data">15.01</div>
+                </div>
+
+                <div class="message sent">
+                    <div class="message-content">{{ phonebook[selectedContact].msg3 }}</div>
+                    <div class="local-data">15.03</div>
                 </div>
 
             </div>
