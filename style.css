@@ -233,14 +233,10 @@ body{
 /* effetti hover e active */
 
 #contact-list :hover{
-    background-color:#e9eaea ;
+    background-color:#f7f7f7 ;
     cursor: pointer;
 }
 
 .active{
     background-color:#e9eaea ;
-}
-
-.hide{
-    display: none;
 }

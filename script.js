@@ -4,6 +4,8 @@ createApp({
     data() {
         return {
 
+            message: '',
+
             //indice di partenza per i contatti
             selectedContact: 0,
 
@@ -58,8 +60,29 @@ createApp({
     },
 
     methods: {
-        selectContact(index) {
-            this.selectedContact = index;
+
+        // funzione che consente di selezionare il contatto e mostrare i relativi messaggi in pagina
+        selectContact(msg) {
+            this.selectedContact = msg;
+        },
+
+
+        //funzione per mandare il messaggio tramite il v-model.
+        sendMessage() {
+            const msgx = `
+                <div class="message sent">
+                <div class="message-content">{{ this.message }}</div>
+                <div class="local-data">15.03</div>
+                </div>`;
+
+
+            console.log(msgx);
+
+
+
+
+            //questo comando mi fa tornare l input text vuoto  dopo aver inviato la stringa
+            this.message = "";
         },
     }
 

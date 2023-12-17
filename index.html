@@ -78,8 +78,9 @@
             <div id="contact-list">
 
 
-                <!--card contatto-->
-                <div class="card-contact active" v-for="(element, i) in phonebook" :key="i">
+                <!-- card contatto -->
+                <!-- il ciclo for mi cicla gli elementi all'interno di phonebook, la funzione click serve per selezionare il contatto dalla  schermata di sinistra e la classe active serve per dare colore differente alla card selezionata -->
+                <div class="card-contact"  v-for="(contact, i) in phonebook" :key="i" @click="selectContact(i)" :class="{ 'active': i === selectedContact }">
 
                     <div class="contact-list-img-container">
                         <img :src="phonebook[i].image" :alt="phonebook[i].name" class="propic contact">
@@ -160,7 +161,7 @@
             <div id="emoji-text-vocal">
 
                 <i class="fa-regular fa-face-smile"></i>
-                <input type="text" name="" id="write-message" placeholder="Scrivi un messaggio">
+                <input type="text" name="" id="write-message" placeholder="Scrivi un messaggio" v-model="message" @keyup.enter="sendMessage">
                 <i class="fa-solid fa-microphone"></i>
 
             </div>
