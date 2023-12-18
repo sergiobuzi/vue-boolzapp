@@ -136,7 +136,7 @@
             <div id="messages-page">
 
                 <!-- avvio un ciclo che mi prenda i messaggi all'interno dell'array ArrayMessaggi e con il v-bind class gli  do la classe sent o received-->
-                <div class="message"  v-for="(messaggi, index) in containerMessaggi" :class="messaggi.status === 'sent' ? 'sent' : 'received' " @keyup.enter="sendMessage()">
+                <div class="message"  v-for="(messaggi, index) in containerMessaggi" :class="messaggi.status === 'sent' ? 'sent' : 'received' ">
                     <div class="message-content">{{ messaggi.message }}</div>
                     <div class="local-data">{{ messaggi.date }}</div>
                 </div>
@@ -150,7 +150,7 @@
             <div id="emoji-text-vocal">
 
                 <i class="fa-regular fa-face-smile"></i>
-                <input type="text" name="" id="write-message" placeholder="Scrivi un messaggio" @keyup.enter="sendMessage()">
+                <input type="text" name="" id="write-message" placeholder="Scrivi un messaggio" @keyup.enter="sendMessage()" v-model="nuovoMessaggio">
                 <i class="fa-solid fa-microphone"></i>
 
             </div>

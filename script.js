@@ -8,7 +8,10 @@ createApp({
             nome: '',
             avatar:'',
 
+            // creo un array  che contanga i messaggi della persona selezionata
             containerMessaggi: [],
+
+            nuovoMessaggio: '',
             
 
             //array di oggetti per i contatti
@@ -180,7 +183,22 @@ createApp({
 
 
         sendMessage() {
-            
+            this.containerMessaggi.push ({
+                message: this.nuovoMessaggio,
+                status: 'sent',
+                
+            });
+            //queasto comando mi fa tornare l input text vuoto  dopo aver inviato la stringa con il bottone
+            this.nuovoMessaggio= "";
+            setTimeout(()=> {
+
+                this.containerMessaggi.push ({
+                    message: 'Ok',
+                    status: 'received',
+                    
+                });
+
+            },"1000")
         }
 
     }
