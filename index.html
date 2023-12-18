@@ -80,19 +80,19 @@
 
                 <!-- card contatto -->
                 <!-- il ciclo for mi cicla gli elementi all'interno di phonebook, la funzione click serve per selezionare il contatto dalla  schermata di sinistra e la classe active serve per dare colore differente alla card selezionata -->
-                <div class="card-contact"  v-for="(contact, i) in phonebook" :key="i" @click="selectContact(i)" :class="{ 'active': i === selectedContact }">
+                <div class="card-contact"  v-for="(contact, i) in phonebook" :key="i" @click="selectContact(i)">
 
                     <div class="contact-list-img-container">
-                        <img :src="phonebook[i].image" :alt="phonebook[i].name" class="propic contact">
+                        <img :src=contact.avatar :alt="contact.name" class="propic contact">
                     </div>
 
                     <div class="contact-list-text-container">
-                        <div>{{ phonebook[i].name }}</div>
-                        <div class="last-access">{{ phonebook[i].msg3 }}</div>
+                        <div>{{ contact.name }}</div>
+                        <div class="last-access"></div>
                     </div>
 
                     <div class="h-sent-container">
-                        <div class="last-access hhh">{{ phonebook[i].lastlog }}</div>
+                        <div class="last-access hhh"></div>
                     </div>
 
                 </div>
@@ -106,8 +106,6 @@
 
 
 
-
-
         <!-- tutta la parte a destra dell' app -->
         <div id="container-right">
 
@@ -116,11 +114,11 @@
             <div class="top-app">
 
                 <div class="top-user">
-                    <img :src="phonebook[selectedContact].image" :alt="phonebook[selectedContact].name" class="propic">
+                    <img :src=avatar :alt=nome class="propic">
 
                     <div class="contact-list-text-container">
-                        <div>{{ phonebook[selectedContact].name }}</div>
-                        <div class="last-access">Ultimo accesso alle {{ phonebook[selectedContact].lastlog }}</div>
+                        <div>{{ nome }}</div>
+                        <div class="last-access">Ultimo accesso alle</div>
                     </div>
                 </div>
 
@@ -137,19 +135,10 @@
             <!-- pagina che contiene i messaggi -->
             <div id="messages-page">
 
-                <div class="message sent">
-                    <div class="message-content">{{ phonebook[selectedContact].msg1 }}</div>
-                    <div class="local-data">15.00</div>
-                </div>
-
-                <div class="message received">
-                    <div class="message-content">{{ phonebook[selectedContact].msg2 }}</div>
-                    <div class="local-data">15.01</div>
-                </div>
-
-                <div class="message sent">
-                    <div class="message-content">{{ phonebook[selectedContact].msg3 }}</div>
-                    <div class="local-data">15.03</div>
+                <!-- avvio un ciclo che mi prenda i messaggi all'interno dell'array ArrayMessaggi e con il v-bind class gli  do la classe sent o received-->
+                <div class="message"  v-for="(messaggi, index) in containerMessaggi" :class="messaggi.status === 'sent' ? 'sent' : 'received' " @keyup.enter="sendMessage()">
+                    <div class="message-content">{{ messaggi.message }}</div>
+                    <div class="local-data">{{ messaggi.date }}</div>
                 </div>
 
             </div>
@@ -161,7 +150,7 @@
             <div id="emoji-text-vocal">
 
                 <i class="fa-regular fa-face-smile"></i>
-                <input type="text" name="" id="write-message" placeholder="Scrivi un messaggio" v-model="message" @keyup.enter="sendMessage">
+                <input type="text" name="" id="write-message" placeholder="Scrivi un messaggio" @keyup.enter="sendMessage()">
                 <i class="fa-solid fa-microphone"></i>
 
             </div>
