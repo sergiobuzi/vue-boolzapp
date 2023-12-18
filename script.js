@@ -11,7 +11,11 @@ createApp({
             // creo un array  che contanga i messaggi della persona selezionata
             containerMessaggi: [],
 
+            // creo una variabile per la funzione per scrivere messaggi
             nuovoMessaggio: '',
+
+            // creo una variabile per trovre i contatti tramite la searchbar
+            findContact:'',
             
 
             //array di oggetti per i contatti

@@ -68,7 +68,7 @@
             <div id="searchbar-container">
 
                 <button class="searchbar-button"><i class="fa-solid fa-magnifying-glass"></i></button>
-                <input type="text" id="searchbar-type" placeholder="Cerca o inizia una nuova chat">
+                <input type="text" id="searchbar-type" placeholder="Cerca o inizia una nuova chat" v-model="findContact">
 
             </div>
 
@@ -80,7 +80,7 @@
 
                 <!-- card contatto -->
                 <!-- il ciclo for mi cicla gli elementi all'interno di phonebook, la funzione click serve per selezionare il contatto dalla  schermata di sinistra e la classe active serve per dare colore differente alla card selezionata -->
-                <div class="card-contact"  v-for="(contact, i) in phonebook" :key="i" @click="selectContact(i)">
+                <div class="card-contact"  v-for="(contact, i) in phonebook" :key="i" @click="selectContact(i)" v-show="contact.name.includes(findContact)">
 
                     <div class="contact-list-img-container">
                         <img :src=contact.avatar :alt="contact.name" class="propic contact">
